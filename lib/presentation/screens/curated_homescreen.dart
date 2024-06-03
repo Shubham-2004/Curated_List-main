@@ -1,4 +1,4 @@
-import 'package:curated_list_task/presentation/screens/Event_list_screens.dart';
+import 'package:curated_list_task/presentation/screens/event_list_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:curated_list_task/presentation/provider/curated_provider.dart';

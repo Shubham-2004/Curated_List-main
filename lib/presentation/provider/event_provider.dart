@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:curated_list_task/domain/models/event_list_model.dart';
 
 class EventProvider with ChangeNotifier {
+  String baseUrl = 'https://allevents.in/api/index.php';
+  String endPoint = '/users/lists/get_events';
   List<Datum> elist = [];
   List<Datum> filteredlist = [];
   bool isLoading = true;
@@ -14,8 +16,6 @@ class EventProvider with ChangeNotifier {
     isError = false;
     notifyListeners();
 
-    const String baseUrl = 'https://allevents.in/api/index.php';
-    const String endPoint = '/users/lists/get_events';
     final Uri url = Uri.parse(baseUrl + endPoint);
 
     final Map<String, String> headers = {
