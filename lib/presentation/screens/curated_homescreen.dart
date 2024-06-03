@@ -79,6 +79,8 @@ class _CuratedHomeScreenState extends State<CuratedHomeScreen> {
                         : provider.list.isEmpty
                             ? Center(child: Text('No events found'))
                             : ListView.builder(
+                                keyboardDismissBehavior:
+                                    ScrollViewKeyboardDismissBehavior.onDrag,
                                 itemCount: _search.text.isNotEmpty
                                     ? provider.filteredlist.length
                                     : provider.list.length,
