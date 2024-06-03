@@ -15,11 +15,32 @@ class EventCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if (event.thumbUrl != null)
+              Image.network(
+                event.thumbUrl!,
+                height: 100,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
             Text(
               event.eventname?.cdata ?? 'No Title',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              event.location?.cdata ?? 'No Location',
+              style: TextStyle(
+                fontSize: 14.0,
+                color: Colors.grey,
+              ),
+            ),
+            Text(
+              event.startTimeDisplay ?? 'No Date',
+              style: TextStyle(
+                fontSize: 14.0,
+                color: Colors.grey,
               ),
             ),
           ],

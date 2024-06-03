@@ -70,7 +70,7 @@ class _CuratedHomeScreenState extends State<CuratedHomeScreen> {
               ),
               Expanded(
                 child: provider.isLoading
-                    ? Center(child: CircularProgressIndicator())
+                    ? Center()
                     : provider.isError
                         ? Center(
                             child: Text(
