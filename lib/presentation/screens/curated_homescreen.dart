@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:curated_list_task/presentation/provider/curated_provider.dart';
 import 'package:curated_list_task/components/widget/listcard.dart';
 import 'package:curated_list_task/components/widget/newlist.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CuratedHomeScreen extends StatefulWidget {
   CuratedHomeScreen({super.key});
@@ -45,6 +46,26 @@ class _CuratedHomeScreenState extends State<CuratedHomeScreen> {
     );
   }
 
+  Widget _buildShimmerEffect() {
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return Shimmer.fromColors(
+          baseColor: Colors.grey[300]!,
+          highlightColor: Colors.grey[100]!,
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: Container(
+              height: 100,
+              color: Colors.white,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +91,7 @@ class _CuratedHomeScreenState extends State<CuratedHomeScreen> {
               ),
               Expanded(
                 child: provider.isLoading
-                    ? Center()
+                    ? _buildShimmerEffect()
                     : provider.isError
                         ? Center(
                             child: Text(

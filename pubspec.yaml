@@ -12,6 +12,7 @@ dependencies:
   http: ^1.2.1
   provider: ^6.1.2
   flutter_cors: ^1.5.0
+  shimmer: ^3.0.0
   
 
 dev_dependencies:
